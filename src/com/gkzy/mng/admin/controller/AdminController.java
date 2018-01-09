@@ -11,3 +11,4 @@ public class AdminController {
 		return page;
 	}
 }
+
