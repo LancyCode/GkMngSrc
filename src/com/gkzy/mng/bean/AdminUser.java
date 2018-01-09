@@ -20,103 +20,103 @@ import javax.persistence.Table;
 @Table(name="admin_user")
 public class AdminUser {
 	
-	public Integer auId;
-	public Integer cpiId;
-	public String auAccount;
-	public String auPwd;
-	public Integer privilegeId;
-	public String cmmt;
-	public String gdp001;
-	public Date gdp002;
-	public String gdp003;
-	public Date gdp004;
-	public Integer gdp005;
-	public String gdp006;
+	private Integer auId;
+	private Integer cpiId;
+	private String auAccount;
+	private String auPwd;
+	private Integer privilegeId;
+	private String cmmt;
+	private String gdp001;
+	private Date gdp002;
+	private String gdp003;
+	private Date gdp004;
+	private Integer gdp005;
+	private String gdp006;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "au_id",unique = true,nullable = false,columnDefinition="Integer DEFAULT NULL COMMENT '类型'")
-	public Integer getAuId() {
+	private Integer getAuId() {
 		return auId;
 	}
-	public void setAuId(Integer auId) {
+	private void setAuId(Integer auId) {
 		this.auId = auId;
 	}
 	@Column(name = "cpi_id",nullable = false,columnDefinition="varchar(100) DEFAULT '' COMMENT '类型'")
-	public Integer getCpiId() {
+	private Integer getCpiId() {
 		return cpiId;
 	}
-	public void setCpiId(Integer cpiId) {
+	private void setCpiId(Integer cpiId) {
 		this.cpiId = cpiId;
 	}
 	@Column(name = "au_account",unique = true,nullable = false)
-	public String getAuAccount() {
+	private String getAuAccount() {
 		return auAccount;
 	}
-	public void setAuAccount(String auAccount) {
+	private void setAuAccount(String auAccount) {
 		this.auAccount = auAccount;
 	}
 	@Column(name = "au_pwd",nullable = false)
-	public String getAuPwd() {
+	private String getAuPwd() {
 		return auPwd;
 	}
-	public void setAuPwd(String auPwd) {
+	private void setAuPwd(String auPwd) {
 		this.auPwd = auPwd;
 	}
 	
 	@Column(name = "privilege_id",nullable = false)
-	public Integer getPrivilegeId() {
+	private Integer getPrivilegeId() {
 		return privilegeId;
 	}
-	public void setPrivilegeId(Integer privilegeId) {
+	private void setPrivilegeId(Integer privilegeId) {
 		this.privilegeId = privilegeId;
 	}
 	
 	@Column(name="gdp001")
-	public String getGdp001() {
+	private String getGdp001() {
 		return gdp001;
 	}
-	public void setGdp001(String gdp001) {
+	private void setGdp001(String gdp001) {
 		this.gdp001 = gdp001;
 	}
 	
 	@Column(name="gdp002")
-	public Date getGdp002() {
+	private Date getGdp002() {
 		return gdp002;
 	}
-	public void setGdp002(Date gdp002) {
+	private void setGdp002(Date gdp002) {
 		this.gdp002 = gdp002;
 	}
 	
 	@Column(name="gdp003")
-	public String getGdp003() {
+	private String getGdp003() {
 		return gdp003;
 	}
-	public void setGdp003(String gdp003) {
+	private void setGdp003(String gdp003) {
 		this.gdp003 = gdp003;
 	}
 	
 	@Column(name="gdp004")
-	public Date getGdp004() {
+	private Date getGdp004() {
 		return gdp004;
 	}
-	public void setGdp004(Date gdp004) {
+	private void setGdp004(Date gdp004) {
 		this.gdp004 = gdp004;
 	}
 	
 	@Column(name="gdp005")
-	public Integer getGdp005() {
+	private Integer getGdp005() {
 		return gdp005;
 	}
-	public void setGdp005(Integer gdp005) {
+	private void setGdp005(Integer gdp005) {
 		this.gdp005 = gdp005;
 	}
 	
 	@Column(name="gdp006")
-	public String getGdp006() {
+	private String getGdp006() {
 		return gdp006;
 	}
-	public void setGdp006(String gdp006) {
+	private void setGdp006(String gdp006) {
 		this.gdp006 = gdp006;
 	}
 }
