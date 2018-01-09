@@ -16,7 +16,6 @@ import javax.persistence.Table;
  * @date 2018年1月8日 上午10:10:36
  * 
  * */
-
 @Entity
 @Table(name = "menuone")
 public class MenuOne {
@@ -111,7 +110,5 @@ public class MenuOne {
 	public void setGdp006(String gdp006) {
 		this.gdp006 = gdp006;
 	}
-	
-	
 	
 }
