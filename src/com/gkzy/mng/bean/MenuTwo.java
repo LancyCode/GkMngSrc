@@ -17,7 +17,7 @@ import javax.persistence.Table;
  * 
  * */
 @Entity
-@Table(name = "menttwo")
+@Table(name = "menutwo")
 public class MenuTwo {
 	public Integer menuTwoId;
 	public Integer menuOneId;
