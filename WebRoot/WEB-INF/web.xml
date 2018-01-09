@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <display-name>XprojectApp</display-name>
+  <display-name>GkzyMngSrc</display-name>
 
     <servlet>
         <servlet-name>SpringMVC</servlet-name>
@@ -21,6 +21,14 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    
+    <!--监听器  -->
+    <listener>
+    	<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+    <listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
     
     <!--Spring配置  -->
     <servlet-mapping>
@@ -40,9 +48,5 @@
 	   <param-name>log4jRefreshInterval</param-name> 
 	   <param-value>60000</param-value> 
 	</context-param> 
-	<!--监听器  -->
-    <listener>
-    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    	<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
+	
 </web-app>
