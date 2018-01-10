@@ -2,11 +2,15 @@ package com.gkzy.mng.bean;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -24,8 +28,6 @@ public class AdminUser {
 	private Integer cpiId;
 	private String auAccount;
 	private String auPwd;
-	private Integer privilegeId;
-	private String cmmt;
 	private String gdp001;
 	private Date gdp002;
 	private String gdp003;
@@ -33,16 +35,18 @@ public class AdminUser {
 	private Integer gdp005;
 	private String gdp006;
 	
+	private Privilege privilege;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "au_id",unique = true,nullable = false,columnDefinition="Integer DEFAULT NULL COMMENT '类型'")
+	@Column(name = "au_id",unique = true,nullable = false)
 	private Integer getAuId() {
 		return auId;
 	}
 	private void setAuId(Integer auId) {
 		this.auId = auId;
 	}
-	@Column(name = "cpi_id",nullable = false,columnDefinition="varchar(100) DEFAULT '' COMMENT '类型'")
+	@Column(name = "cpi_id",nullable = false)
 	private Integer getCpiId() {
 		return cpiId;
 	}
@@ -64,13 +68,6 @@ public class AdminUser {
 		this.auPwd = auPwd;
 	}
 	
-	@Column(name = "privilege_id",nullable = false)
-	private Integer getPrivilegeId() {
-		return privilegeId;
-	}
-	private void setPrivilegeId(Integer privilegeId) {
-		this.privilegeId = privilegeId;
-	}
 	
 	@Column(name="gdp001")
 	private String getGdp001() {
@@ -119,4 +116,14 @@ public class AdminUser {
 	private void setGdp006(String gdp006) {
 		this.gdp006 = gdp006;
 	}
+	
+	@ManyToOne(targetEntity=Privilege.class,fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="privilege_id",referencedColumnName = "privilege_id")
+	public Privilege getPrivilege() {
+		return privilege;
+	}
+	public void setPrivilege(Privilege privilege) {
+		this.privilege = privilege;
+	}
+	
 }

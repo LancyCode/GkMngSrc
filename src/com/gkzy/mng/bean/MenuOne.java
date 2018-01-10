@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -33,7 +37,7 @@ public class MenuOne {
 	private Integer gdp005;
 	private String gdp006;
 	
-	private List<MenuTwo> menuTwoId = new ArrayList();;
+	private List<Privilegemng> privilegemngList = new ArrayList<Privilegemng>();
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -115,12 +119,17 @@ public class MenuOne {
 	private void setGdp006(String gdp006) {
 		this.gdp006 = gdp006;
 	}
-	@OneToMany(targetEntity=MenuTwo.class,mappedBy="menuone")
-	public List<MenuTwo> getMenuTwoId() {
-		return menuTwoId;
+	
+	@ManyToMany(targetEntity=Privilegemng.class,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @JoinTable(name = "menuone_privilegemng",
+    		   joinColumns = @JoinColumn(name = "menuone_id",referencedColumnName = "menuone_id"),
+    		   inverseJoinColumns = @JoinColumn(name = "privilegemng_id",referencedColumnName = "privilegemng_id")
+    		)
+	public List<Privilegemng> getPrivilegemngList() {
+		return privilegemngList;
 	}
-	public void setMenuTwoId(List<MenuTwo> menuTwoId) {
-		this.menuTwoId = menuTwoId;
+	public void setPrivilegemngList(List<Privilegemng> privilegemngList) {
+		this.privilegemngList = privilegemngList;
 	}
 	
 }

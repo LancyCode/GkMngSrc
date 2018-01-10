@@ -1,36 +1,37 @@
 package com.gkzy.mng.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "privilegemng")
 public class Privilegemng {
     private Integer privilegemngId;
-
     private Integer privilegeId;
-
     private Integer menuoneId;
-
     private Integer privilegeState;
-
     private Integer gdp001;
-
     private String gdp002;
-
     private Date gdp003;
-
     private String gdp004;
-
     private Date gdp005;
-
     private String gdp006;
+    
+    private List<Privilege> privilegeList = new ArrayList<Privilege>();
+    private List<MenuOne> menuOneList = new ArrayList<MenuOne>();
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -114,4 +115,30 @@ public class Privilegemng {
     private void setGdp006(String gdp006) {
         this.gdp006 = gdp006 == null ? null : gdp006.trim();
     }
+
+    @ManyToMany(targetEntity=Privilege.class,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @JoinTable(name = "privilege_privilegemng",
+    		   joinColumns = @JoinColumn(name = "privilegemng_id",referencedColumnName = "privilegemng_id"),
+    		   inverseJoinColumns = @JoinColumn(name = "privilege_id",referencedColumnName = "privilege_id")
+    		)
+	public List<Privilege> getPrivilegeList() {
+		return privilegeList;
+	}
+
+	public void setPrivilegeList(List<Privilege> privilegeList) {
+		this.privilegeList = privilegeList;
+	}
+
+	 @ManyToMany(targetEntity=MenuOne.class,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	 @JoinTable(name = "menuone_privilegemng",
+	    		   joinColumns = @JoinColumn(name = "privilegemng_id",referencedColumnName = "privilegemng_id"),
+	    		   inverseJoinColumns = @JoinColumn(name = "menuone_id",referencedColumnName = "menuone_id")
+	    		)
+	public List<MenuOne> getMenuOneList() {
+		return menuOneList;
+	}
+	public void setMenuOneList(List<MenuOne> menuOneList) {
+		this.menuOneList = menuOneList;
+	}
+
 }
