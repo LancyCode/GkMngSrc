@@ -23,11 +23,11 @@ public class Privilegemng {
     private Integer privilegeId;
     private Integer menuoneId;
     private Integer privilegeState;
-    private Integer gdp001;
-    private String gdp002;
-    private Date gdp003;
-    private String gdp004;
-    private Date gdp005;
+    private String gdp001;
+    private Date gdp002;
+    private String gdp003;
+    private Date gdp004;
+    private int gdp005;
     private String gdp006;
     
     private List<Privilege> privilegeList = new ArrayList<Privilege>();
@@ -39,80 +39,74 @@ public class Privilegemng {
     private Integer getPrivilegemngId() {
         return privilegemngId;
     }
-
     private void setPrivilegemngId(Integer privilegemngId) {
         this.privilegemngId = privilegemngId;
     }
+    
     @Column(name = "privilege_id")
     private Integer getPrivilegeId() {
         return privilegeId;
     }
-
     private void setPrivilegeId(Integer privilegeId) {
         this.privilegeId = privilegeId;
     }
+    
     @Column(name = "menuone_id")
     private Integer getMenuoneId() {
         return menuoneId;
     }
-
     private void setMenuoneId(Integer menuoneId) {
         this.menuoneId = menuoneId;
     }
+    
     @Column(name = "privailege_state")
     private Integer getPrivilegeState() {
         return privilegeState;
     }
-
     private void setPrivilegeState(Integer privilegeState) {
         this.privilegeState = privilegeState;
     }
     @Column(name = "gdp001")
-    private Integer getGdp001() {
-        return gdp001;
-    }
-
-    private void setGdp001(Integer gdp001) {
-        this.gdp001 = gdp001;
-    }
-    @Column(name = "gdp002")
-    private String getGdp002() {
-        return gdp002;
-    }
-
-    private void setGdp002(String gdp002) {
-        this.gdp002 = gdp002 == null ? null : gdp002.trim();
-    }
-    @Column(name = "gdp003")
-    private Date getGdp003() {
-        return gdp003;
-    }
-
-    private void setGdp003(Date gdp003) {
-        this.gdp003 = gdp003;
-    }
-    @Column(name = "gdp004")
-    private String getGdp004() {
-        return gdp004;
-    }
-
-    private void setGdp004(String gdp004) {
-        this.gdp004 = gdp004 == null ? null : gdp004.trim();
-    }
-    @Column(name = "gdp005")
-    private Date getGdp005() {
-        return gdp005;
-    }
-
-    private void setGdp005(Date gdp005) {
-        this.gdp005 = gdp005;
-    }
+    public String getGdp001() {
+		return gdp001;
+	}
+	public void setGdp001(String gdp001) {
+		this.gdp001 = gdp001;
+	}
+	@Column(name = "gdp002")
+	public Date getGdp002() {
+		return gdp002;
+	}
+	public void setGdp002(Date gdp002) {
+		this.gdp002 = gdp002;
+	}
+	@Column(name = "gdp003")
+	public String getGdp003() {
+		return gdp003;
+	}
+	public void setGdp003(String gdp003) {
+		this.gdp003 = gdp003;
+	}
+	@Column(name = "gdp004")
+	public Date getGdp004() {
+		return gdp004;
+	}
+	public void setGdp004(Date gdp004) {
+		this.gdp004 = gdp004;
+	}
+	@Column(name = "gdp005")
+	public int getGdp005() {
+		return gdp005;
+	}
+	public void setGdp005(int gdp005) {
+		this.gdp005 = gdp005;
+	}
     @Column(name = "gdp006")
     private String getGdp006() {
         return gdp006;
     }
 
-    private void setGdp006(String gdp006) {
+	private void setGdp006(String gdp006) {
         this.gdp006 = gdp006 == null ? null : gdp006.trim();
     }
 
@@ -128,7 +122,6 @@ public class Privilegemng {
 	public void setPrivilegeList(List<Privilege> privilegeList) {
 		this.privilegeList = privilegeList;
 	}
-
 	 @ManyToMany(targetEntity=MenuOne.class,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	 @JoinTable(name = "menuone_privilegemng",
 	    		   joinColumns = @JoinColumn(name = "privilegemng_id",referencedColumnName = "privilegemng_id"),

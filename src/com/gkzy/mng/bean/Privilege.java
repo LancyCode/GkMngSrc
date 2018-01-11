@@ -20,13 +20,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "privilege")
 public class Privilege {
-	private Integer privilegeId;
+	private int privilegeId;
     private String privilege;
-    private Integer gdp001;
-	private String gdp002;
-    private Date gdp003;
-    private String gdp004;
-    private Date gdp005;
+    private String gdp001;
+	private Date gdp002;
+    private String gdp003;
+    private Date gdp004;
+    private int gdp005;
     private String gdp006;
     
     private List<AdminUser> adminUserList = new ArrayList<AdminUser>();
@@ -50,60 +50,47 @@ public class Privilege {
 	public void setPrivilege(String privilege) {
 		this.privilege = privilege;
 	}
-	
 	@Column(name = "gdp001")
-	public Integer getGdp001() {
+	public String getGdp001() {
 		return gdp001;
 	}
-
-	public void setGdp001(Integer gdp001) {
+	public void setGdp001(String gdp001) {
 		this.gdp001 = gdp001;
 	}
-	
 	@Column(name = "gdp002")
-	public String getGdp002() {
+	public Date getGdp002() {
 		return gdp002;
 	}
-
-	public void setGdp002(String gdp002) {
+	public void setGdp002(Date gdp002) {
 		this.gdp002 = gdp002;
 	}
-	
 	@Column(name = "gdp003")
-	public Date getGdp003() {
+	public String getGdp003() {
 		return gdp003;
 	}
-
-	public void setGdp003(Date gdp003) {
+	public void setGdp003(String gdp003) {
 		this.gdp003 = gdp003;
 	}
-	
 	@Column(name = "gdp004")
-	public String getGdp004() {
+	public Date getGdp004() {
 		return gdp004;
 	}
-
-	public void setGdp004(String gdp004) {
+	public void setGdp004(Date gdp004) {
 		this.gdp004 = gdp004;
 	}
-	
 	@Column(name = "gdp005")
-	public Date getGdp005() {
+	public int getGdp005() {
 		return gdp005;
 	}
-
-	public void setGdp005(Date gdp005) {
+	public void setGdp005(int gdp005) {
 		this.gdp005 = gdp005;
 	}
-	
 	@Column(name = "gdp006")
-	public String getGdp006() {
-		return gdp006;
-	}
-
 	public void setGdp006(String gdp006) {
 		this.gdp006 = gdp006;
 	}
+
+	
 	
 	@OneToMany(targetEntity=AdminUser.class,fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="privilege")
 	public List<AdminUser> getAdminUserList() {
