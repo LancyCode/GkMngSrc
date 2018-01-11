@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @ClassName:AdminUser
  * @Description:管理员信息
@@ -22,6 +24,7 @@ import javax.persistence.Table;
  * */
 @Entity
 @Table(name="admin_user")
+@Component
 public class AdminUser {
 	
 	private Integer auId;
@@ -37,86 +40,94 @@ public class AdminUser {
 	
 	private Privilege privilege;
 	
+	private String password;
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "au_id",unique = true,nullable = false)
-	private Integer getAuId() {
+	public Integer getAuId() {
 		return auId;
 	}
-	private void setAuId(Integer auId) {
+
+	public void setAuId(Integer auId) {
 		this.auId = auId;
 	}
 	@Column(name = "cpi_id",nullable = false)
-	private Integer getCpiId() {
+	public Integer getCpiId() {
 		return cpiId;
 	}
-	private void setCpiId(Integer cpiId) {
+
+	public void setCpiId(Integer cpiId) {
 		this.cpiId = cpiId;
 	}
 	@Column(name = "au_account",unique = true,nullable = false)
-	private String getAuAccount() {
+	public String getAuAccount() {
 		return auAccount;
 	}
-	private void setAuAccount(String auAccount) {
+
+	public void setAuAccount(String auAccount) {
 		this.auAccount = auAccount;
 	}
+
 	@Column(name = "au_pwd",nullable = false)
-	private String getAuPwd() {
+	public String getAuPwd() {
 		return auPwd;
 	}
-	private void setAuPwd(String auPwd) {
+
+	public void setAuPwd(String auPwd) {
 		this.auPwd = auPwd;
 	}
+
 	
-	
-	@Column(name="gdp001")
-	private String getGdp001() {
+	@Column(name = "gdp001")
+	public String getGdp001() {
 		return gdp001;
 	}
-	private void setGdp001(String gdp001) {
+	
+	public void setGdp001(String gdp001) {
 		this.gdp001 = gdp001;
 	}
-	
-	@Column(name="gdp002")
-	private Date getGdp002() {
+	@Column(name = "gdp002")
+	public Date getGdp002() {
 		return gdp002;
 	}
-	private void setGdp002(Date gdp002) {
+	public void setGdp002(Date gdp002) {
 		this.gdp002 = gdp002;
 	}
-	
-	@Column(name="gdp003")
-	private String getGdp003() {
+
+	@Column(name = "gdp003")
+	public String getGdp003() {
 		return gdp003;
 	}
-	private void setGdp003(String gdp003) {
+	
+	public void setGdp003(String gdp003) {
 		this.gdp003 = gdp003;
 	}
-	
-	@Column(name="gdp004")
-	private Date getGdp004() {
+
+	@Column(name = "gdp004")
+	public Date getGdp004() {
 		return gdp004;
 	}
-	private void setGdp004(Date gdp004) {
+	public void setGdp004(Date gdp004) {
 		this.gdp004 = gdp004;
 	}
-	
-	@Column(name="gdp005")
-	private Integer getGdp005() {
+
+	@Column(name = "gdp005")
+	public Integer getGdp005() {
 		return gdp005;
 	}
-	private void setGdp005(Integer gdp005) {
+	public void setGdp005(Integer gdp005) {
 		this.gdp005 = gdp005;
 	}
-	
-	@Column(name="gdp006")
-	private String getGdp006() {
+
+	@Column(name = "gdp006")
+	public String getGdp006() {
 		return gdp006;
 	}
-	private void setGdp006(String gdp006) {
+	public void setGdp006(String gdp006) {
 		this.gdp006 = gdp006;
 	}
-	
 	@ManyToOne(targetEntity=Privilege.class,fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="privilege_id",referencedColumnName = "privilege_id")
 	public Privilege getPrivilege() {
