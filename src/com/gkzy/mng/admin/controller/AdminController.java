@@ -19,10 +19,7 @@ import com.gkzy.mng.bean.AdminUser;
 public class AdminController {
 	@Autowired
 	private AdminUserService adminUserServiceImpl;
-	@RequestMapping("/")
-	public String getMid() throws Exception{
-		return "login";
-	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(String auAccount, String auPwd,HttpSession session,HttpServletRequest request, HttpServletResponse response) {
 			AdminUser adminUser = adminUserServiceImpl.loginAdminUser(auAccount,auPwd);
@@ -42,6 +39,11 @@ public class AdminController {
 	public String showPage(@PathVariable String page){
 		return page;
 		
+	}
+	
+	@RequestMapping("/")
+	public String showLogin(){
+		return "login";
 	}
 }
 
