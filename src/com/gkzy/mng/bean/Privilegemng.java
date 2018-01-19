@@ -28,7 +28,7 @@ public class Privilegemng {
     private String gdp003;
     private Date gdp004;
     private int gdp005;
-    private String gdp006;
+	private String gdp006;
     
     private List<Privilege> privilegeList = new ArrayList<Privilege>();
     private List<MenuOne> menuOneList = new ArrayList<MenuOne>();
@@ -36,36 +36,39 @@ public class Privilegemng {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "privilegemng_id")
-    private Integer getPrivilegemngId() {
-        return privilegemngId;
-    }
-    private void setPrivilegemngId(Integer privilegemngId) {
-        this.privilegemngId = privilegemngId;
-    }
-    
+    public Integer getPrivilegemngId() {
+		return privilegemngId;
+	}
+	public void setPrivilegemngId(Integer privilegemngId) {
+		this.privilegemngId = privilegemngId;
+	}
+	
+	  
     @Column(name = "privilege_id")
-    private Integer getPrivilegeId() {
-        return privilegeId;
-    }
-    private void setPrivilegeId(Integer privilegeId) {
-        this.privilegeId = privilegeId;
-    }
-    
+	public Integer getPrivilegeId() {
+		return privilegeId;
+	}
+	public void setPrivilegeId(Integer privilegeId) {
+		this.privilegeId = privilegeId;
+	}
+
     @Column(name = "menuone_id")
-    private Integer getMenuoneId() {
-        return menuoneId;
-    }
-    private void setMenuoneId(Integer menuoneId) {
-        this.menuoneId = menuoneId;
-    }
-    
+	public Integer getMenuoneId() {
+		return menuoneId;
+	}
+	public void setMenuoneId(Integer menuoneId) {
+		this.menuoneId = menuoneId;
+	}
+
     @Column(name = "privailege_state")
-    private Integer getPrivilegeState() {
-        return privilegeState;
-    }
-    private void setPrivilegeState(Integer privilegeState) {
-        this.privilegeState = privilegeState;
-    }
+	public Integer getPrivilegeState() {
+		return privilegeState;
+	}
+	public void setPrivilegeState(Integer privilegeState) {
+		this.privilegeState = privilegeState;
+	}
+
+   
     @Column(name = "gdp001")
     public String getGdp001() {
 		return gdp001;
