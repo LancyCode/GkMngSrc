@@ -86,11 +86,12 @@ public class Privilege {
 		this.gdp005 = gdp005;
 	}
 	@Column(name = "gdp006")
+	public String getGdp006() {
+		return gdp006;
+	}
 	public void setGdp006(String gdp006) {
 		this.gdp006 = gdp006;
 	}
-
-	
 	
 	@OneToMany(targetEntity=AdminUser.class,fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="privilege")
 	public List<AdminUser> getAdminUserList() {
@@ -110,4 +111,5 @@ public class Privilege {
 	public void setPrivilegemngList(List<Privilegemng> privilegemngList) {
 		this.privilegemngList = privilegemngList;
 	}
+	
 }
