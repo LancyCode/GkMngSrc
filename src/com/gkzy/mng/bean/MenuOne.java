@@ -119,16 +119,10 @@ public class MenuOne {
 	
 	private List<Privilegemng> privilegemngList = new ArrayList<Privilegemng>();
 	
-
 	
 	
 	
-	
-	
-	
-	
-	
-	@ManyToMany(targetEntity=Privilegemng.class,cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@ManyToMany(targetEntity=Privilegemng.class,cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     @JoinTable(name = "menuone_privilegemng",
     		   joinColumns = @JoinColumn(name = "menuone_id",referencedColumnName = "menuone_id"),
     		   inverseJoinColumns = @JoinColumn(name = "privilegemng_id",referencedColumnName = "privilegemng_id")
